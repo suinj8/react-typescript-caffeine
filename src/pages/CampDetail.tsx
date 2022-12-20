@@ -1,5 +1,5 @@
 const CampDetail = () => {
-  return <div></div>;
+  return <div>CampDetail화면</div>;
 };
 
 export default CampDetail;
