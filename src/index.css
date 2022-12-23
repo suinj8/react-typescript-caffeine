@@ -60,3 +60,14 @@ footer {
   height: 160px;
   background-color: #eeeeee;
 }
+
+footer .logo {
+  position: absolute;
+  left: 16.81%;
+  right: 79.1%;
+  top: 20%;
+  bottom: 63.75%;
+
+  font-family: "Roboto Slab";
+  letter-spacing: -0.07em;
+}
