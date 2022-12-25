@@ -17,8 +17,8 @@ export interface IComment {
 
 export interface ICommunity {
   ID: number;
-  type: string;
+  type: string | undefined;
   title: string;
   content: string;
-  comment: IComment;
+  comment: IComment[];
 }
