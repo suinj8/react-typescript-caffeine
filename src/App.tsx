@@ -8,13 +8,15 @@ import GlobalStyle from "./styles/global";
 
 function App() {
   return (
-    <Routes>
+    <>
       <GlobalStyle />
-      <Route path="/" element={<Home />} />
-      <Route path="/detail" element={<CampDetail />} />
-      <Route path="/apply" element={<CampApply />} />
-      <Route path="/community" element={<Community />} />
-    </Routes>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/detail" element={<CampDetail />} />
+        <Route path="/apply" element={<CampApply />} />
+        <Route path="/community" element={<Community />} />
+      </Routes>
+    </>
   );
 }
 
