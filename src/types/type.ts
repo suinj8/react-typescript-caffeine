@@ -21,8 +21,3 @@ export interface ICommunity {
   content: string;
   comment: IComment;
 }
-
-export interface ITypography {
-  text: string;
-  type: string;
-}
