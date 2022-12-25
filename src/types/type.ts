@@ -10,14 +10,14 @@ export interface ICamp {
 
 export interface IComment {
   ID: number;
-  picture: string;
+  picture: string | undefined;
   nickname: string;
   content: string;
 }
 
 export interface ICommunity {
   ID: number;
-  type: string | undefined;
+  type: string;
   title: string;
   content: string;
   comment: IComment[];
