@@ -5,6 +5,7 @@ export interface ICamp {
   field?: string;
   title: string;
   sDate: string;
+  imgURL: string;
 }
 
 export interface IComment {
