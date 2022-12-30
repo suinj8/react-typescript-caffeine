@@ -14,6 +14,7 @@ import {
 
 import HomeHeader from "./Components/HomeHeader";
 import CampList from "./Components/CampList";
+import HomeBanner from "./Components/HomeBanner";
 
 const Home = () => {
   return (
@@ -29,11 +30,7 @@ const Home = () => {
         campListCards={OnsaleCampSample}
       />
 
-      <section>
-        <div className="banner">
-          현직자와 소통하며 배우는 실무 스킬, 퍼스널 트레이닝
-        </div>
-      </section>
+      <HomeBanner content="현직자와 소통하며 배우는 실무 스킬, 퍼스널 트레이닝" />
 
       <section className="communityBox">
         <div className="community">
@@ -66,16 +63,6 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     margin-top: 64px;
-
-    .banner {
-      width: 960px;
-      max-width: 960px;
-      background: ${colors.primary01};
-      color: ${colors.white};
-      ${fonts.H2}
-      padding: 32px;
-      box-sizing: border-box;
-    }
 
     .community {
       max-width: 960px;
