@@ -1,12 +1,11 @@
 import Footer from "../../components/Footer";
-import CampCard from "../../components/CampCard";
 import CommunityCard from "../../components/CommunityCard";
 
 import styled from "styled-components";
 import colors from "../../styles/colors";
 import fonts from "../../styles/fonts";
 
-import { ICamp, ICommunity } from "../../types/type";
+import { ICommunity } from "../../types/type";
 import {
   PopularCampSample,
   OnsaleCampSample,
@@ -14,45 +13,21 @@ import {
 } from "../../apis/test/HomeSample";
 
 import HomeHeader from "./Components/HomeHeader";
+import CampList from "./Components/CampList";
 
 const Home = () => {
   return (
     <Container>
       <HomeHeader />
 
-      <section>
-        <div className="camp">
-          <div className="campTitle">인기 부트 캠프</div>
-          <div className="campLists">
-            {PopularCampSample.map((data: ICamp) => (
-              <CampCard
-                key={data.ID}
-                title={data.title}
-                sDate={data.sDate}
-                status={data.status}
-                imgURL={data.imgURL}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div className="camp">
-          <div className="campTitle">특가 할인 캠프</div>
-          <div className="campLists">
-            {OnsaleCampSample.map((data: ICamp) => (
-              <CampCard
-                key={data.ID}
-                title={data.title}
-                sDate={data.sDate}
-                jobs={data.jobs}
-                imgURL={data.imgURL}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+      <CampList
+        campListTitle="인기 부트 캠프"
+        campListCards={PopularCampSample}
+      />
+      <CampList
+        campListTitle="특가 할인 캠프"
+        campListCards={OnsaleCampSample}
+      />
 
       <section>
         <div className="banner">
