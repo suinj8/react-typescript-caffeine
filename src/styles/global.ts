@@ -15,6 +15,9 @@ const GlobalStyle = createGlobalStyle`
   img{
     width:100%;
   }
+  .weight-700 {
+    font-weight: 700;
+  }
 `;
 
 export default GlobalStyle;
