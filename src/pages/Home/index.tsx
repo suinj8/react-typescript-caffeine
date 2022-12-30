@@ -19,6 +19,96 @@ import leftImg from "../../assets/images/left.png";
 import rightImg from "../../assets/images/right.png";
 import lineImg from "../../assets/images/line.png";
 
+const Home = () => {
+  return (
+    <Container>
+      <header>
+        <div className="content">
+          <nav>
+            <div className="logo">Caffeine</div>
+            <div className="profile"></div>
+          </nav>
+
+          <section>
+            <div className="title">
+              개발은
+              <br />
+              카페인과 함께
+              <div className="chevron">
+                <div className="line"></div>
+                <div className="left"></div>
+                <div className="right"></div>
+              </div>
+            </div>
+            <div className="mainImg"></div>
+          </section>
+        </div>
+      </header>
+
+      <section>
+        <div className="camp">
+          <div className="campTitle">인기 부트 캠프</div>
+          <div className="campLists">
+            {PopularCampSample.map((data: ICamp) => (
+              <CampCard
+                key={data.ID}
+                title={data.title}
+                sDate={data.sDate}
+                status={data.status}
+                imgURL={data.imgURL}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="camp">
+          <div className="campTitle">특가 할인 캠프</div>
+          <div className="campLists">
+            {OnsaleCampSample.map((data: ICamp) => (
+              <CampCard
+                key={data.ID}
+                title={data.title}
+                sDate={data.sDate}
+                jobs={data.jobs}
+                imgURL={data.imgURL}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="banner">
+          현직자와 소통하며 배우는 실무 스킬, 퍼스널 트레이닝
+        </div>
+      </section>
+
+      <section className="communityBox">
+        <div className="community">
+          <div className="communityTitle">커뮤니티</div>
+          <div className="communityLists">
+            {CommunitySample.map((data: ICommunity) => (
+              <CommunityCard
+                key={data.ID}
+                type={data.type}
+                title={data.title}
+                content={data.content}
+                comment={data.comment}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </Container>
+  );
+};
+
+export default Home;
+
 const Container = styled.div`
   width: 100%;
 
@@ -158,93 +248,3 @@ const Container = styled.div`
     }
   }
 `;
-
-const Home = () => {
-  return (
-    <Container>
-      <header>
-        <div className="content">
-          <nav>
-            <div className="logo">Caffeine</div>
-            <div className="profile"></div>
-          </nav>
-
-          <section>
-            <div className="title">
-              개발은
-              <br />
-              카페인과 함께
-              <div className="chevron">
-                <div className="line"></div>
-                <div className="left"></div>
-                <div className="right"></div>
-              </div>
-            </div>
-            <div className="mainImg"></div>
-          </section>
-        </div>
-      </header>
-
-      <section>
-        <div className="camp">
-          <div className="campTitle">인기 부트 캠프</div>
-          <div className="campLists">
-            {PopularCampSample.map((data: ICamp) => (
-              <CampCard
-                key={data.ID}
-                title={data.title}
-                sDate={data.sDate}
-                status={data.status}
-                imgURL={data.imgURL}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div className="camp">
-          <div className="campTitle">특가 할인 캠프</div>
-          <div className="campLists">
-            {OnsaleCampSample.map((data: ICamp) => (
-              <CampCard
-                key={data.ID}
-                title={data.title}
-                sDate={data.sDate}
-                jobs={data.jobs}
-                imgURL={data.imgURL}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div className="banner">
-          현직자와 소통하며 배우는 실무 스킬, 퍼스널 트레이닝
-        </div>
-      </section>
-
-      <section className="communityBox">
-        <div className="community">
-          <div className="communityTitle">커뮤니티</div>
-          <div className="communityLists">
-            {CommunitySample.map((data: ICommunity) => (
-              <CommunityCard
-                key={data.ID}
-                type={data.type}
-                title={data.title}
-                content={data.content}
-                comment={data.comment}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <Footer />
-    </Container>
-  );
-};
-
-export default Home;
