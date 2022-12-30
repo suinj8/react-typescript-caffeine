@@ -14,7 +14,7 @@ const Community = ({ CommunityTitle, CommunityCards }: CommunityProps) => {
   return (
     <CommunitySection>
       <div className="community">
-        <div className="comminity-title">{CommunityTitle}</div>
+        <div className="community-title">{CommunityTitle}</div>
         <div className="community-cards">
           {CommunityCards.map((CommCard: ICommunity) => (
             <CommunityCard
@@ -43,8 +43,8 @@ const CommunitySection = styled.section`
     margin-bottom: 200px;
 
     .community-title {
-      width: 100%;
       ${fonts.H2}
+      width: 100%;
       margin-bottom: 9px;
     }
     .community-cards {
