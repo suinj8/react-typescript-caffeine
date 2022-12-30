@@ -1,26 +1,26 @@
-import Footer from "../components/Footer";
-import CampCard from "../components/CampCard";
+import Footer from "../../components/Footer";
+import CampCard from "../../components/CampCard";
+import CommunityCard from "../../components/CommunityCard";
 
 import styled from "styled-components";
-import colors from "../styles/colors";
-import fonts from "../styles/fonts";
-import profileImg from "../assets/images/Profile.png";
-import mainImg from "../assets/images/main.png";
-import leftImg from "../assets/images/left.png";
-import rightImg from "../assets/images/right.png";
-import lineImg from "../assets/images/line.png";
-import { ICamp, ICommunity } from "../types/type";
+import colors from "../../styles/colors";
+import fonts from "../../styles/fonts";
 
-import popular1 from "../assets/images/popular1.png";
-import popular2 from "../assets/images/popular2.png";
-import popular3 from "../assets/images/popular3.png";
-import popular4 from "../assets/images/popular4.png";
+import { ICamp, ICommunity } from "../../types/type";
 
-import sale1 from "../assets/images/sale1.png";
-import sale2 from "../assets/images/sale2.png";
-import sale3 from "../assets/images/sale3.png";
-import sale4 from "../assets/images/sale4.png";
-import CommunityCard from "../components/CommunityCard";
+import profileImg from "../../assets/images/Profile.png";
+import mainImg from "../../assets/images/main.png";
+import leftImg from "../../assets/images/left.png";
+import rightImg from "../../assets/images/right.png";
+import lineImg from "../../assets/images/line.png";
+import popular1 from "../../assets/images/popular1.png";
+import popular2 from "../../assets/images/popular2.png";
+import popular3 from "../../assets/images/popular3.png";
+import popular4 from "../../assets/images/popular4.png";
+import sale1 from "../../assets/images/sale1.png";
+import sale2 from "../../assets/images/sale2.png";
+import sale3 from "../../assets/images/sale3.png";
+import sale4 from "../../assets/images/sale4.png";
 
 const dummyPopularData: ICamp[] = [
   {
