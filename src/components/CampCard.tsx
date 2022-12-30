@@ -2,6 +2,22 @@ import styled from "styled-components";
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
 
+const CampCard = ({ ...props }) => {
+  return (
+    <Container imgURL={props.imgURL}>
+      <article>
+        {props.status ? (
+          <label className="status">{props.status}</label>
+        ) : (
+          <label className="jobs">{props.jobs}</label>
+        )}
+        <label className="title">{props.title}</label>
+        <label className="sDate">{props.sDate}</label>
+      </article>
+    </Container>
+  );
+};
+
 const Container = styled.div<{ imgURL: string }>`
   flex: 1;
   height: 280px;
@@ -42,21 +58,5 @@ const Container = styled.div<{ imgURL: string }>`
     }
   }
 `;
-
-const CampCard = ({ ...props }) => {
-  return (
-    <Container imgURL={props.imgURL}>
-      <article>
-        {props.status ? (
-          <label className="status">{props.status}</label>
-        ) : (
-          <label className="jobs">{props.jobs}</label>
-        )}
-        <label className="title">{props.title}</label>
-        <label className="sDate">{props.sDate}</label>
-      </article>
-    </Container>
-  );
-};
 
 export default CampCard;
