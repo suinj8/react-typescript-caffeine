@@ -67,23 +67,6 @@ const Container = styled.div`
     justify-content: center;
     margin-top: 64px;
 
-    .camp {
-      max-width: 960px;
-      width: 100%;
-
-      .campTitle {
-        width: 100%;
-        font-family: "Noto Sans";
-        ${fonts.H2}
-        margin-bottom: 9px;
-      }
-      .campLists {
-        display: flex;
-        justify-content: space-between;
-        gap: 20px;
-      }
-    }
-
     .banner {
       width: 960px;
       max-width: 960px;
