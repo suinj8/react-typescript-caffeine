@@ -5,6 +5,33 @@ import { IComment } from "../types/type";
 
 import Comment from "./Comment";
 
+const CommunityCard = ({ ...props }) => {
+  return (
+    <Container>
+      <article>
+        <div className="chipBox">
+          <div className="view">조회수 TOP</div>
+          <div className="type">{props.type}</div>
+        </div>
+        <div className="title">{props.title}</div>
+        <div className="content">{props.content}</div>
+
+        <div className="comment">
+          {props.comment.map((data: IComment) => (
+            <Comment
+              ID={data.ID}
+              picture={data.picture}
+              nickname={data.nickname}
+              content={data.content}
+            />
+          ))}
+          <button className="commentMore">+더보기</button>
+        </div>
+      </article>
+    </Container>
+  );
+};
+
 const Container = styled.div<{}>`
   flex: 1;
   height: 320px;
@@ -66,32 +93,5 @@ const Container = styled.div<{}>`
     }
   }
 `;
-
-const CommunityCard = ({ ...props }) => {
-  return (
-    <Container>
-      <article>
-        <div className="chipBox">
-          <div className="view">조회수 TOP</div>
-          <div className="type">{props.type}</div>
-        </div>
-        <div className="title">{props.title}</div>
-        <div className="content">{props.content}</div>
-
-        <div className="comment">
-          {props.comment.map((data: IComment) => (
-            <Comment
-              ID={data.ID}
-              picture={data.picture}
-              nickname={data.nickname}
-              content={data.content}
-            />
-          ))}
-          <button className="commentMore">+더보기</button>
-        </div>
-      </article>
-    </Container>
-  );
-};
 
 export default CommunityCard;
