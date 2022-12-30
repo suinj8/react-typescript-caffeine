@@ -9,7 +9,7 @@ import sale2 from "../../assets/images/sale2.png";
 import sale3 from "../../assets/images/sale3.png";
 import sale4 from "../../assets/images/sale4.png";
 
-export const dummyPopularData: ICamp[] = [
+export const PopularCampSample: ICamp[] = [
   {
     ID: 0,
     status: "모집중",
@@ -40,7 +40,7 @@ export const dummyPopularData: ICamp[] = [
   },
 ];
 
-export const dummySaleData: ICamp[] = [
+export const OnsaleCampSample: ICamp[] = [
   {
     ID: 4,
     jobs: "IT/백엔드",
@@ -71,7 +71,7 @@ export const dummySaleData: ICamp[] = [
   },
 ];
 
-export const dummyCommunityData: ICommunity[] = [
+export const CommunitySample: ICommunity[] = [
   {
     ID: 0,
     type: "취업 고민",
