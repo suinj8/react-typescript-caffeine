@@ -26,6 +26,7 @@ const CampList = ({ campListTitle, campListCards }: campProps) => {
               title={campCard.title}
               sDate={campCard.sDate}
               status={campCard.status}
+              jobs={campCard.jobs}
               imgURL={campCard.imgURL}
             />
           ))}
