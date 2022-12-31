@@ -1,18 +1,19 @@
 import styled from "styled-components";
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
+import { ICamp } from "../types/type";
 
-const CampCard = ({ ...props }) => {
+const CampCard = ({ ...campCardProps }: ICamp) => {
   return (
-    <Container imgURL={props.imgURL}>
-      <article>
-        {props.status ? (
-          <label className="status">{props.status}</label>
+    <Container imgURL={campCardProps.imgURL}>
+      <article className="campCard-article">
+        {campCardProps.status ? (
+          <label className="campCard-status">{campCardProps.status}</label>
         ) : (
-          <label className="jobs">{props.jobs}</label>
+          <label className="campCard-jobs">{campCardProps.jobs}</label>
         )}
-        <label className="title">{props.title}</label>
-        <label className="sDate">{props.sDate}</label>
+        <label className="campCard-title">{campCardProps.title}</label>
+        <label className="campCard-sDate">{campCardProps.sDate}</label>
       </article>
     </Container>
   );
@@ -25,7 +26,7 @@ const Container = styled.div<{ imgURL: string }>`
   border-radius: 10px;
   position: relative;
 
-  article {
+  .campCard-article {
     display: flex;
     flex-direction: column;
     gap: 11px;
@@ -42,18 +43,15 @@ const Container = styled.div<{ imgURL: string }>`
     position: absolute;
     bottom: 0px;
 
-    .status,
-    .jobs {
-      font-family: "Noto Sans CJK KR";
+    .campCard-status,
+    .campCard-jobs {
       ${fonts.Body2}
     }
-    .title {
-      font-family: "Noto Sans";
+    .campCard-title {
       ${fonts.Body2}
       font-weight: 700;
     }
-    .sDate {
-      font-family: "Noto Sans";
+    .campCard-sDate {
       ${fonts.Caption}
     }
   }

@@ -19,6 +19,7 @@ const CampList = ({ campListTitle, campListCards }: campProps) => {
           {campListCards.map((campCard: ICamp) => (
             <CampCard
               key={`campCard-${campCard.ID}`}
+              ID={campCard.ID}
               title={campCard.title}
               sDate={campCard.sDate}
               status={campCard.status}
