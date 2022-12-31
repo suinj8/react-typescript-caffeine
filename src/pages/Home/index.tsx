@@ -10,7 +10,11 @@ import HomeBanner from "./Components/HomeBanner";
 import Community from "./Components/Community";
 import Footer from "../../components/Footer";
 
+import { useMediaQuery } from "react-responsive";
+
 const Home = () => {
+  const isDesktop = useMediaQuery({ query: "(min-width: 769px)" });
+
   return (
     <div>
       <HomeHeader />
@@ -23,7 +27,9 @@ const Home = () => {
         campListCards={OnsaleCampSample}
       />
       <HomeBanner content="현직자와 소통하며 배우는 실무 스킬, 퍼스널 트레이닝" />
-      <Community CommunityTitle="커뮤니티" CommunityCards={CommunitySample} />
+      {isDesktop && (
+        <Community CommunityTitle="커뮤니티" CommunityCards={CommunitySample} />
+      )}
       <Footer />
     </div>
   );
