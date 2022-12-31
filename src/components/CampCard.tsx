@@ -2,30 +2,41 @@ import styled from "styled-components";
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
 
-const CampCard = ({ ...props }) => {
+import { ICamp } from "../types/type";
+
+import { useMediaQuery } from "react-responsive";
+
+const CampCard = ({ ...campCardProps }: ICamp) => {
+  const isDesktop = useMediaQuery({ query: "(min-width: 769px)" });
+
   return (
-    <Container imgURL={props.imgURL}>
-      <article>
-        {props.status ? (
-          <label className="status">{props.status}</label>
+    <CampCardBox imgURL={campCardProps.imgURL} isDesktop={isDesktop}>
+      <article className="campCard-article">
+        {campCardProps.status ? (
+          <label className="campCard-status">{campCardProps.status}</label>
         ) : (
-          <label className="jobs">{props.jobs}</label>
+          <label className="campCard-jobs">{campCardProps.jobs}</label>
         )}
-        <label className="title">{props.title}</label>
-        <label className="sDate">{props.sDate}</label>
+        <label className="campCard-title weight-700">
+          {campCardProps.title}
+        </label>
+        <label className="campCard-sDate">{campCardProps.sDate}</label>
       </article>
-    </Container>
+    </CampCardBox>
   );
 };
 
-const Container = styled.div<{ imgURL: string }>`
+const CampCardBox = styled.div<{ imgURL: string; isDesktop: boolean }>`
   flex: 1;
   height: 280px;
   background-image: ${(props) => `url(${props.imgURL})`};
+  background-size: 100%;
   border-radius: 10px;
   position: relative;
+  width: 100%;
+  ${(props) => !props.isDesktop && "margin-bottom: 8px;"}
 
-  article {
+  .campCard-article {
     display: flex;
     flex-direction: column;
     gap: 11px;
@@ -37,23 +48,20 @@ const Container = styled.div<{ imgURL: string }>`
       rgba(89, 89, 89, 0.558824) 15.62%,
       #000000 70.83%
     );
-    margin-top: 65%;
     border-radius: 0 0 10px 10px;
     position: absolute;
     bottom: 0px;
+    width: 100%;
+    box-sizing: border-box;
 
-    .status,
-    .jobs {
-      font-family: "Noto Sans CJK KR";
+    .campCard-status,
+    .campCard-jobs {
       ${fonts.Body2}
     }
-    .title {
-      font-family: "Noto Sans";
+    .campCard-title {
       ${fonts.Body2}
-      font-weight: 700;
     }
-    .sDate {
-      font-family: "Noto Sans";
+    .campCard-sDate {
       ${fonts.Caption}
     }
   }

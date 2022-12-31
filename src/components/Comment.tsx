@@ -2,15 +2,16 @@ import styled from "styled-components";
 import fonts from "../styles/fonts";
 
 import commentProfile from "../assets/images/commentProfile.png";
+import { IComment } from "../types/type";
 
-const Comment = ({ ...props }) => {
+const Comment = ({ ...commentProps }: IComment) => {
   return (
-    <CommentBox picture={props.picture}>
+    <CommentBox picture={commentProps.picture}>
       <div className="comment-picture"></div>
 
       <div className="comment-contentBox">
-        <div className="comment-nickname">{props.nickname}</div>
-        <div className="comment-content">{props.content}</div>
+        <div className="comment-nickname">{commentProps.nickname}</div>
+        <div className="comment-content">{commentProps.content}</div>
       </div>
     </CommentBox>
   );

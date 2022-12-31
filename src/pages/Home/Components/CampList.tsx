@@ -4,6 +4,7 @@ import fonts from "../../../styles/fonts";
 import CampCard from "../../../components/CampCard";
 
 import { ICamp } from "../../../types/type";
+import { useMediaQuery } from "react-responsive";
 
 interface campProps {
   campListTitle: string;
@@ -11,17 +12,21 @@ interface campProps {
 }
 
 const CampList = ({ campListTitle, campListCards }: campProps) => {
+  const isDesktop = useMediaQuery({ query: "(min-width: 769px)" });
+
   return (
-    <ListSection>
+    <ListSection isDesktop={isDesktop}>
       <div className="campList">
         <div className="campList-title">{campListTitle}</div>
         <div className="campList-cards">
           {campListCards.map((campCard: ICamp) => (
             <CampCard
               key={`campCard-${campCard.ID}`}
+              ID={campCard.ID}
               title={campCard.title}
               sDate={campCard.sDate}
               status={campCard.status}
+              jobs={campCard.jobs}
               imgURL={campCard.imgURL}
             />
           ))}
@@ -31,10 +36,11 @@ const CampList = ({ campListTitle, campListCards }: campProps) => {
   );
 };
 
-const ListSection = styled.section`
+const ListSection = styled.section<{ isDesktop: boolean }>`
   display: flex;
   justify-content: center;
-  margin-top: 64px;
+  margin-top: ${(props) => (props.isDesktop ? "64px;" : "35px;")};
+  ${(props) => !props.isDesktop && "padding-left: 24px; padding-right: 24px;"}
 
   .campList {
     width: 100%;
@@ -45,9 +51,8 @@ const ListSection = styled.section`
       margin-bottom: 9px;
     }
     .campList-cards {
-      display: flex;
+      ${(props) => props.isDesktop && "display: flex; gap: 20px;"}
       justify-content: space-between;
-      gap: 20px;
     }
   }
 `;

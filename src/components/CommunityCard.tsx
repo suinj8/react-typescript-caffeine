@@ -1,19 +1,11 @@
 import styled from "styled-components";
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
-import { IComment } from "../types/type";
+import { IComment, ICommunity } from "../types/type";
 
 import Comment from "./Comment";
 
-interface CommunityCardProps {
-  ID: number;
-  type: string;
-  title: string;
-  content: string;
-  comment: IComment[];
-}
-
-const CommunityCard = ({ ...CommunityCard }: CommunityCardProps) => {
+const CommunityCard = ({ ...CommunityCard }: ICommunity) => {
   return (
     <CommunityCardBox>
       <article className="commCard-article">
@@ -28,6 +20,7 @@ const CommunityCard = ({ ...CommunityCard }: CommunityCardProps) => {
           {CommunityCard.comment.map((comment: IComment) => (
             <Comment
               key={`comment-${comment.ID}`}
+              ID={comment.ID}
               picture={comment.picture}
               nickname={comment.nickname}
               content={comment.content}
