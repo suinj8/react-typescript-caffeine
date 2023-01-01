@@ -9,6 +9,8 @@ import rightImg from "../../../assets/images/right.png";
 import lineImg from "../../../assets/images/line.png";
 
 import { useMediaQuery } from "react-responsive";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 const HomeHeader = () => {
   const isDesktop = useMediaQuery({ query: "(min-width: 769px)" });
@@ -34,7 +36,14 @@ const HomeHeader = () => {
               </div>
             )}
           </div>
-          <div className="header-mainImg"></div>
+          {/* <div className="header-mainImg"></div> */}
+          <Swiper className="swiper-fixed-width-600">
+            <SwiperSlide>
+              <div className="header-mainImg"></div>
+            </SwiperSlide>
+            <SwiperSlide>이미지2</SwiperSlide>
+            <SwiperSlide>이미지3</SwiperSlide>
+          </Swiper>
         </section>
       </div>
     </Header>
@@ -80,6 +89,12 @@ const Header = styled.header<{ isDesktop: boolean }>`
           ? "display: flex; justify-content: space-between; align-items: flex-end;margin-top: 56px; margin-bottom: 56px;"
           : "margin-top: 10px; margin-bottom: 20px;"}
 
+      .swiper-fixed-width-600 {
+        width: 600px;
+        height: 400px;
+        margin: 0px;
+      }
+
       .header-title {
         ${(props) =>
           props.isDesktop
@@ -115,7 +130,7 @@ const Header = styled.header<{ isDesktop: boolean }>`
         background-size: ${(props) =>
           props.isDesktop ? "600px, 400px;" : "100%;"}
         width: ${(props) => (props.isDesktop ? "600px;" : "100%;")}
-        height: ${(props) => (props.isDesktop ? "400px" : "200px")};
+        height: ${(props) => (props.isDesktop ? "400px;" : "200px;")};
         border-radius: 10px;
       }
     }
