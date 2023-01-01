@@ -10,7 +10,7 @@ export interface ICamp {
 
 export interface IComment {
   ID: number;
-  picture: string | undefined;
+  picture?: string;
   nickname: string;
   content: string;
 }

@@ -2,39 +2,39 @@ import styled from "styled-components";
 import fonts from "../styles/fonts";
 
 import commentProfile from "../assets/images/commentProfile.png";
+import { IComment } from "../types/type";
 
-const Container = styled.div<{ picture: string | undefined }>`
+const Comment = ({ ...commentProps }: IComment) => {
+  return (
+    <CommentBox picture={commentProps.picture}>
+      <div className="comment-picture"></div>
+
+      <div className="comment-contentBox">
+        <div className="comment-nickname">{commentProps.nickname}</div>
+        <div className="comment-content">{commentProps.content}</div>
+      </div>
+    </CommentBox>
+  );
+};
+
+const CommentBox = styled.div<{ picture: string | undefined }>`
   display: flex;
-
-  .picture {
+  .comment-picture {
     background-image: ${(props) =>
       props.picture ? `url(${props.picture})` : `url(${commentProfile})`};
     width: 30px;
     height: 30px;
     margin-right: 8px;
   }
-  .contentBox {
-    .nickname {
+  .comment-contentBox {
+    .comment-nickname {
       ${fonts.Caption};
       font-weight: bold;
     }
-    .content {
+    .comment-content {
       ${fonts.Caption}
     }
   }
 `;
-
-const Comment = ({ ...props }) => {
-  return (
-    <Container picture={props.picture}>
-      <div className="picture"></div>
-
-      <div className="contentBox">
-        <div className="nickname">{props.nickname}</div>
-        <div className="content">{props.content}</div>
-      </div>
-    </Container>
-  );
-};
 
 export default Comment;
